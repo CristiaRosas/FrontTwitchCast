@@ -1,17 +1,17 @@
-export const input = ({
+export const Input = ({
     field,
     label,
     value,
-    onChargeHandler,
+    onChangeHandler,
     type,
     showErrorMessage,
     validationMessage,
     onBlurHandler,
-    textarea
+    textArea
 }) => {
 
     const handleValueChange = (event) => {
-        onChargeHandler(event.target.value, field);
+        onChangeHandler(event.target.value, field);
     }
 
     const handleInputBlur = (event) => {
@@ -24,8 +24,8 @@ export const input = ({
                 <span>{label}</span>
             </div>
             <div>
-                {textarea ? (
-                    <textarea
+                {textArea ? (
+                    <textArea
                         type={type}
                         value={value}
                         onChange={handleValueChange}
