@@ -3,9 +3,9 @@ import { Logo } from "./Logo";
 import { Input } from "./Input";
 import {
     emailValidationMessage,
-    ValidateEmail,
+    validateEmail,
     validatePasswordMessage,
-    ValidatePassword
+    validatePassword
 } from "../shared/validators";
 import { useLogin } from "../shared/hooks"
 
@@ -40,10 +40,10 @@ export const Login = ({ switchAuthHandler }) => {
         let isValid = false;
         switch(field) {
             case 'email':
-                isValid = ValidateEmail(value);
+                isValid = validateEmail(value);
                 break;
             case 'password':
-                isValid = ValidatePassword(value);
+                isValid = validatePassword(value);
                 break;
             default:
                 break;
