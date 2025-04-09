@@ -99,3 +99,42 @@ export const Login = ({ switchAuthHandler }) => {
         </div>
     )
 }
+
+export const Navbar = () =>{
+    const { isLogged,logout } =useUserDetails()
+
+    const navigate = useNavigate()
+
+    const handleNavigateToAtuhPage = () =>{
+        navigate('/auth')
+    }
+
+    const handleNavigateToSeetingPage = () =>{
+        navigate('/settings')
+    }
+
+    const handleNavigateToChannelsPage = () =>{
+        navigate('/channels')
+    }
+
+    const handleLogout = () =>{
+        logout()
+    }
+
+    return (
+        <div className="nav-container">
+            <NavLogo />
+            <div className="nav-buttons-container">
+                <NavButton text='Browse' onClickHandler={handleNavigateToChannelsPage}/>
+                {!isLogged ? (
+                    <NavButton text='Login' onClickHandler={handleNavigateToAtuhPage}/>
+                ) : (
+                    <div>
+                        <NavButton text='My account' onClickHandler={handleNavigateToSeetingPage}/>
+                        <NavButton text='logout' onClickHandler={handleLogout}/>
+                    </div>
+                )}
+            </div>
+        </div>
+    )
+}
