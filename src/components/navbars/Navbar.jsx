@@ -1,22 +1,22 @@
-import { useNavigate} from "react-router-dom";
-import logo from '../../assets/img/kinalpeque.png';
-import { useUserDetails } from "../../shared/hooks/useUserDetails";
+import { useNavigate } from "react-router-dom";
+import logo from '../../assets/img/kinalpeque.png'
+import { useUserDetails } from '../../shared/hooks'
 
 const NavLogo = () => {
-    return(
+    return (
         <div className="nav-logo-container">
             <img
                 className="nav-logo"
                 width='100%'
                 height='100%'
                 src={logo}
-                alt="kinalpeque"
+                alt="Escudo Kinal"
             />
         </div>
     )
 }
 
-const NavButton = ({text, onClickHandler}) => {
+const NavButton = ({ text, onClickHandler }) => {
     return(
         <span className="nav-button" onClick={onClickHandler}>
             {text}
@@ -24,24 +24,25 @@ const NavButton = ({text, onClickHandler}) => {
     )
 }
 
-export const Navbar = () =>{
-    const { isLogged,logout } =useUserDetails()
+export const Navbar = () => {
+    
+    const { isLogged, logout } = useUserDetails()
 
     const navigate = useNavigate()
 
-    const handleNavigateToAtuhPage = () =>{
+    const handleNavigateToAuthPage = () => {
         navigate('/auth')
     }
 
-    const handleNavigateToSeetingPage = () =>{
+    const handleNavigateToSettingPage = () => {
         navigate('/settings')
     }
 
-    const handleNavigateToChannelsPage = () =>{
+    const handleNavigateToChannelsPage = () => {
         navigate('/channels')
     }
 
-    const handleLogout = () =>{
+    const handleLogout = () => {
         logout()
     }
 
@@ -51,10 +52,10 @@ export const Navbar = () =>{
             <div className="nav-buttons-container">
                 <NavButton text='Browse' onClickHandler={handleNavigateToChannelsPage}/>
                 {!isLogged ? (
-                    <NavButton text='Login' onClickHandler={handleNavigateToAtuhPage}/>
+                    <NavButton text='Login' onClickHandler={handleNavigateToAuthPage}/>
                 ) : (
                     <div>
-                        <NavButton text='My account' onClickHandler={handleNavigateToSeetingPage}/>
+                        <NavButton text='My account' onClickHandler={handleNavigateToSettingPage}/>
                         <NavButton text='logout' onClickHandler={handleLogout}/>
                     </div>
                 )}

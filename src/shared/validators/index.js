@@ -5,4 +5,3 @@ export * from './validatePassword.jsx';
 export * from './validateConfirPassword.jsx';
 export * from './validateTitle.jsx';
 export * from './validateUsername.jsx';
-
